@@ -10,33 +10,46 @@
 
 /*--------------------------------------------------------------
 # Font & Color Variables
+
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2e0a13; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #7c3848; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #212529;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #2e0a13;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #b81919;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(255, 255, 255, 0.6);  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #7c3848; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: rgba(255, 255, 255, 0.6);
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #7c3848;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -145,7 +158,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #7c3848;
+  --background-color: #b81919;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
@@ -160,7 +173,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 32px;
+  max-height: 70px;
   margin-right: 8px;
 }
 
@@ -179,6 +192,7 @@ h6 {
 .scrolled .header {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -898,7 +912,56 @@ section,
 
 /*--------------------------------------------------------------
 # Hero Section
+
+
 --------------------------------------------------------------*/
+/* ------------------------------------------------ */
+/* NOUVEAU CSS POUR L'OVERLAY SEMI-TRANSPARENT */
+/* ------------------------------------------------ */
+
+.carousel-item {
+  position: relative;
+  /* Nécessaire pour positionner l'overlay par rapport à lui */
+}
+
+.carousel-overlay {
+  position: absolute;
+  /* Positionne l'overlay par rapport au .carousel-item */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* LA COULEUR DEMANDÉE QUI COUVRE TOUTE L'IMAGE */
+  background: rgba(0, 0, 0, 0.65);
+
+  /* Assure que la légende (le texte) reste au-dessus de l'overlay */
+  z-index: 1;
+}
+
+/* ------------------------------------------------ */
+/* MISE À JOUR DU CSS DE LA LÉGENDE (ENLEVER LE FOND) */
+/* ------------------------------------------------ */
+
+.carousel-caption {
+  /* Maintient le centrage vertical et horizontal */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #fff;
+  padding: 30px;
+
+  /* RETIRER l'arrière-plan du texte car il est maintenant sur l'image */
+  background: none;
+
+  /* Assure que la légende est AU-DESSUS de l'overlay */
+  z-index: 2;
+
+  max-width: 800px;
+  width: 90%;
+}
+
 .hero {
   padding: 0;
   position: relative;
@@ -906,14 +969,14 @@ section,
 }
 
 .hero .hero-container {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/education/showcase-1.webp") center/cover no-repeat;
-  min-height: 80vh;
+
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--contrast-color);
-  padding: 120px 20px;
+  /* padding: 120px 20px; */
   position: relative;
 }
 
@@ -8389,3 +8452,98 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 150px auto;
+  text-align: center;
+}
+
+/* Assurez-vous d'avoir Bootstrap 5 lié à votre page */
+/* CSS pour la Section Témoignage Unique */
+
+/* Ajoutez une icône si vous utilisez la classe "bi bi-..." (nécessite le CDN Bootstrap Icons) */
+/* Exemple : <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" rel="stylesheet"> */
+
+.video-shadow-effect {
+    /* Mettre en valeur la vidéo avec une ombre forte */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.video-shadow-effect:hover {
+    transform: scale(1.01); /* Léger effet de zoom au survol */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.text-primary {
+    /* Couleur vive de votre thème */
+    color: #0d6efd !important; 
+}
+
+.text-warning {
+    /* Couleur d'accent (jaune ou autre) */
+    color: #ffc107 !important; 
+}
+
+.bg-warning {
+    /* Pour le badge "Parole d'Étudiant(e)" */
+    background-color: #ffc107 !important;
+}
+
+/* CSS pour la Section Visite du Campus */
+
+.bg-dark {
+    /* Utiliser un fond noir/gris foncé pour faire ressortir la vidéo */
+    background-color: #1a1a1a !important; 
+}
+
+.text-warning {
+    color: #ffc107 !important; /* Couleur vive pour l'énergie */
+}
+
+/* Rendre le conteneur vidéo plus dynamique */
+.video-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-hover-effect:hover {
+    transform: scale(1.005); /* Très léger zoom pour l'impact */
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.5) !important; /* Halo de lumière */
+}
+
+.btn-xl {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+/* CSS pour la Section Témoignage Unique */
+
+/* Le w-100 h-100 assure que la vidéo remplisse bien le conteneur ratio */
+.ratio video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que la vidéo couvre tout l'espace sans déformation */
+}
+
+.video-shadow-effect {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-shadow-effect:hover {
+    transform: scale(1.01); /* Léger effet de zoom au survol */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Vous pouvez ajouter une image d'aperçu pour la vidéo (l'attribut 'poster' dans la balise video) 
+   pour un meilleur rendu avant le lancement. J'ai ajouté un placeholder dans le code HTML. */
